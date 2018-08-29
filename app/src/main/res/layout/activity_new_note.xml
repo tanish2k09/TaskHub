@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_layout_new_note"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appBG"
+    tools:context=".activities.newNoteActivity">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/saveCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="2dp"
+                android:layout_weight="1"
+                android:text="@string/save"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_save_black" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/bottom_preview_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/contentCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/card_note_bg"
+            app:cardCornerRadius="@dimen/card_note_radius"
+            app:layout_constraintEnd_toStartOf="@+id/cardView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".fragments.CardFragment">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/title_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorCard"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/preview_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="5dp"
+                    android:maxLength="25"
+                    android:maxLines="1"
+                    android:paddingBottom="5dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/danger"
+            app:cardCornerRadius="@dimen/card_note_radius"
+            app:layout_constraintBottom_toBottomOf="@+id/contentCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00000000"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                app:srcCompat="@drawable/ic_delete_black"
+                tools:ignore="ContentDescription" />
+        </android.support.v7.widget.CardView>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <com.github.florent37.materialtextfield.MaterialTextField
+        android:id="@+id/materialTextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saveCard"
+        app:mtf_image="@drawable/ic_short_text_black_24dp"
+        app:mtf_labelColor="#666"
+        app:mtf_openKeyboardOnFocus="true">
+
+        <EditText
+            android:id="@+id/edit_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title_blank_fragment"
+            android:imeOptions="actionDone"
+            android:inputType="text|textCapSentences|textAutoCorrect|textAutoComplete"
+            android:lines="1"
+            android:maxLength="20"
+            android:textColor="@color/textColorCard"
+            android:typeface="monospace" />
+
+    </com.github.florent37.materialtextfield.MaterialTextField>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/edit_note_card"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:cardBackgroundColor="@color/card_note_bg"
+        app:cardCornerRadius="@dimen/card_note_radius"
+        app:layout_constraintBottom_toTopOf="@+id/note_preview_Text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialTextField">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayout_Note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:clickable="false">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edit_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoText="true"
+                android:background="@android:color/transparent"
+                android:hint="@string/note_Text"
+                android:inputType="textCapSentences|textAutoCorrect|textAutoComplete|textMultiLine|textImeMultiLine"
+                android:paddingTop="3dp"
+                android:textColor="@color/textColorCard"
+                android:textSize="16sp"
+                android:typeface="monospace" />
+        </android.support.design.widget.TextInputLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_preview_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/note_preview_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/preview"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

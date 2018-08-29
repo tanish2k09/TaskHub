@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/DialogFragmentStyle"
+    tools:context=".fragments.dialogFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <FrameLayout
+        android:id="@+id/openEditing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            tools:layout_editor_absoluteX="146dp"
+            tools:layout_editor_absoluteY="96dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:lines="1"
+                android:maxLines="1"
+                android:text="@string/edit"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_open"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/reading_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:maxLength="20"
+        android:text="@string/title_blank_fragment"
+        android:textColor="@color/appBG"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="340dp"
+        android:layout_height="350dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/openEditing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reading_title">
+
+        <TextView
+            android:id="@+id/reading_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="12dp"
+            android:scrollIndicators="end"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:text="@string/text_blank_fragment"
+            android:textColor="#888888"
+            android:textSize="16sp"
+            android:typeface="monospace"
+            app:layout_constraintBottom_toTopOf="@+id/openEditing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reading_title"
+            app:layout_constraintVertical_bias="0.0" />
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

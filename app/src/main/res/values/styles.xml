@@ -1,0 +1,34 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="MainTheme" parent="AppTheme.NoActionBar">
+        <item name="android:typeface">monospace</item>
+        <item name="android:textColorPrimary">@color/textColorCard</item>
+        <item name="android:buttonStyle">@style/FontButtonStyle</item>
+    </style>
+
+    <style name="FontButtonStyle">
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat"/>
+
+    <style name="DialogFragmentStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowSoftInputMode">stateHidden|adjustResize</item>
+    </style>
+
+</resources>
