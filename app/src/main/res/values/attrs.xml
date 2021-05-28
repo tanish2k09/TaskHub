@@ -9,7 +9,4 @@
         <attr name="mtf_openKeyboardOnFocus" format="boolean"/>
         <attr name="mtf_backgroundColor" format="color"/>
     </declare-styleable>
-    <declare-styleable name="ScrollViewWithMaxHeight">
-        <attr name="maxHeight" format="integer" />
-    </declare-styleable>
 </resources>

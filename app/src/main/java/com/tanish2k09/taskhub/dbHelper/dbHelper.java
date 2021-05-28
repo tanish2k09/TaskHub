@@ -48,7 +48,7 @@ public class dbHelper extends SQLiteOpenHelper{
         db.update(TABLE_NAME,cv,ID+"="+id,null);
     }
 
-    public String getTitlefromID(int id)
+    public String getTitleFromID(int id)
     {
         String title = "";
         cursor = db.rawQuery("select "+TITLE+" from "+TABLE_NAME+" where "+ID+" = " + id + ";", null);
@@ -63,7 +63,7 @@ public class dbHelper extends SQLiteOpenHelper{
         return title;
     }
 
-    public String getTextfromID(int id) {
+    public String getTextFromID(int id) {
         String text = "";
         cursor = db.rawQuery("select "+TEXT+" from "+TABLE_NAME+" where "+ID+" = " + id + ";", null);
         if (cursor != null) {

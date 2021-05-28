@@ -2,22 +2,21 @@ package com.tanish2k09.taskhub.fragments;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import androidx.core.app.Fragment;
-import androidx.core.app.FragmentManager;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
 import com.tanish2k09.taskhub.dbHelper.dbHelper;
 
 import com.tanish2k09.taskhub.R;
-
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,7 +79,7 @@ public class CardFragment extends Fragment {
         ImageButton deleteButton = v.findViewById(R.id.deleteButton);
         deleteButton.setOnClickListener(new View.OnClickListener() {
 
-            dbHelper mDB = new dbHelper(v.getContext());
+            final dbHelper mDB = new dbHelper(v.getContext());
 
             @Override
             public void onClick(View v) {
@@ -88,20 +87,12 @@ public class CardFragment extends Fragment {
                 alertBuilder.setCancelable(true);
                 alertBuilder.setTitle("Do you really want to delete the note?\n");
                 alertBuilder.setMessage(titleText);
-                alertBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        mDB.removeNote(id);
-                        dialog.dismiss();
-                        deleteInterface.onDeleteNote();
-                    }
+                alertBuilder.setPositiveButton("Yes", (dialog, which) -> {
+                    mDB.removeNote(id);
+                    dialog.dismiss();
+                    deleteInterface.onDeleteNote();
                 });
-                alertBuilder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
+                alertBuilder.setNeutralButton("Cancel", (dialog, which) -> dialog.cancel());
                 AlertDialog dialog = alertBuilder.create();
                 dialog.show();
             }
@@ -109,7 +100,7 @@ public class CardFragment extends Fragment {
 
         content.setOnClickListener(new View.OnClickListener() {
 
-            FragmentManager fm = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
+            final FragmentManager fm = requireActivity().getSupportFragmentManager();
 
             @Override
             public void onClick(View v) {
@@ -123,7 +114,7 @@ public class CardFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Context context)
+    public void onAttach(@NonNull Context context)
     {
         super.onAttach(context);
         try {

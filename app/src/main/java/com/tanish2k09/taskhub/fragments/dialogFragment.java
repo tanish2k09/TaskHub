@@ -2,8 +2,8 @@ package com.tanish2k09.taskhub.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import androidx.core.app.DialogFragment;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.tanish2k09.taskhub.R;
 import com.tanish2k09.taskhub.activities.newNoteActivity;
 
-public class dialogFragment extends DialogFragment{
+public class dialogFragment extends DialogFragment {
 
     private String title = "", fullText = "";
     private int id = -1;

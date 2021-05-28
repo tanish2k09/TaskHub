@@ -1,19 +1,20 @@
 package com.tanish2k09.taskhub.activities;
 
-import androidx.core.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import androidx.core.app.FragmentManager;
-import androidx.core.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.tanish2k09.taskhub.dbHelper.dbHelper;
 
@@ -42,20 +43,16 @@ public class MainActivity extends AppCompatActivity implements CardFragment.onDe
         SharedPreferences sp = getSharedPreferences("data",MODE_PRIVATE);
         SharedPreferences.Editor sp_editor = sp.edit();
         ImageButton newNote = findViewById(R.id.newNoteButton);
-        Boolean init = sp.getBoolean("init",false);
+        boolean init = sp.getBoolean("init",false);
 
         noteScrollView = findViewById(R.id.noteScrollView);
         no_note_card = findViewById(R.id.no_notes_card);
 
 
-        newNote.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), newNoteActivity.class);
-                i.putExtra("id",-1);
-                startActivity(i);
-            }
+        newNote.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(), newNoteActivity.class);
+            i.putExtra("id",-1);
+            startActivity(i);
         });
 
         mDb = new dbHelper(this);
@@ -95,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements CardFragment.onDe
                     id = cursor.getInt(cursor.getColumnIndex(dbHelper.ID));
                     if(id >= 0)
                     {
-                        card.setArgs(id, mDb.getTitlefromID(id), mDb.getTextfromID(id));
+                        card.setArgs(id, mDb.getTitleFromID(id), mDb.getTextFromID(id));
                         ft.add(R.id.notes_holder_ll, card);
                         ft.commit();
                         noteCount++;

@@ -1,10 +1,7 @@
 package com.tanish2k09.taskhub.activities;
 
 import android.content.Intent;
-import androidx.constraintlayout.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -12,6 +9,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.github.florent37.materialtextfield.MaterialTextField;
 import com.tanish2k09.taskhub.dbHelper.dbHelper;
@@ -49,14 +50,11 @@ public class newNoteActivity extends AppCompatActivity {
         final InputMethodManager inputMethodManager = (InputMethodManager) getApplicationContext().getSystemService(INPUT_METHOD_SERVICE);
 
         // Set click responses
-        edit_note_card.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                note_box.requestFocus();
-                assert inputMethodManager != null;
-                inputMethodManager.showSoftInput(note_box, InputMethodManager.SHOW_IMPLICIT);
-                note_box.setSelection(note_box.getText().length());
-            }
+        edit_note_card.setOnClickListener(v -> {
+            note_box.requestFocus();
+            assert inputMethodManager != null;
+            inputMethodManager.showSoftInput(note_box, InputMethodManager.SHOW_IMPLICIT);
+            note_box.setSelection(note_box.getText().length());
         });
 
         saveCard.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +97,7 @@ public class newNoteActivity extends AppCompatActivity {
     {
         title_box.addTextChangedListener(new TextWatcher() {
 
-            TextView title_new = findViewById(R.id.title_new);
+            final TextView title_new = findViewById(R.id.title_new);
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -118,7 +116,7 @@ public class newNoteActivity extends AppCompatActivity {
         });
         note_box.addTextChangedListener(new TextWatcher() {
 
-            TextView preview_new = findViewById(R.id.preview_new);
+            final TextView preview_new = findViewById(R.id.preview_new);
             boolean needs_refresh = true;
             boolean append_dot = true;
 
