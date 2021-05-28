@@ -1,11 +1,11 @@
 package com.tanish2k09.taskhub.activities;
 
-import android.support.v4.app.FragmentTransaction;
+import androidx.core.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.Fragment;
+import androidx.core.app.FragmentManager;
+import androidx.core.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
